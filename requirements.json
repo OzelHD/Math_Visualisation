@@ -1,0 +1,50 @@
+{
+  "frontend": {
+    "framework": "vanilla-js",
+    "styling": {
+      "library": "tailwindcss",
+      "version": "^3.4.0",
+      "notes": "Utility-first CSS, no monolithic build system, works with CDN or PostCSS"
+    },
+    "math": {
+      "expression_parser": {
+        "library": "mathjs",
+        "version": "^11.11.0",
+        "purpose": "Parse, evaluate, and manipulate mathematical expressions in s-domain"
+      }
+    },
+    "plotting": {
+      "library": "plotly.js",
+      "version": "^2.30.0",
+      "purpose": "Interactive plotting for time-domain and frequency-domain responses"
+    },
+    "optional_math_extensions": {
+      "symbolic_rendering": {
+        "library": "katex",
+        "version": "^0.16.9",
+        "purpose": "Render mathematical expressions cleanly in the UI"
+      }
+    },
+    "optional_utilities": {
+      "complex_numbers": {
+        "library": "complex.js",
+        "version": "^2.1.1",
+        "purpose": "Robust complex number operations if math.js is insufficient"
+      }
+    }
+  },
+  "build_tools": {
+    "bundler": {
+      "optional": true,
+      "recommendation": "Vite",
+      "reason": "Fast dev server without framework lock-in"
+    }
+  },
+  "deployment": {
+    "static_hosting": [
+      "GitHub Pages",
+      "Vercel (static export only)",
+      "Netlify"
+    ]
+  }
+}

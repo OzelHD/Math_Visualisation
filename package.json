@@ -1,0 +1,19 @@
+{
+  "name": "math_visualisation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build:css": "tailwindcss -i ./src/input.css -o ./tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./tailwind.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "complex.js": "^2.1.1",
+    "katex": "^0.16.9",
+    "mathjs": "^11.11.0",
+    "plotly.js": "^2.30.0",
+    "tailwindcss": "^3.4.0"
+  }
+}
