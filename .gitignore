@@ -14,3 +14,8 @@ tailwind.css.map
 npm-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Old ETH files
+
+idk/
+oldeth/
