@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="/keycloak/resources/r034f/login/ethz/css/style.css" />
+  <link rel="stylesheet" href="/keycloak/resources/r034f/login/ethz/css/form.css" />
+  <link rel="shortcut icon" href="/keycloak/resources/r034f/login/ethz/icons/favicon.ico" type="image/x-icon">
+  <title>Authentisierung Benutzer | ETH Zürich</title>
+</head>
+
+<body>
+  <div class="compact">
+    <header>
+      <div class="header-container header-logo">
+        <a href="https://www.ethz.ch">
+          <img src="/keycloak/resources/r034f/login/ethz/images/ethz_logo_black.svg" id="Logo" alt="Yes">
+        </a>
+      </div>
+    </header>
+    <div class="content">
+      <div id="title-container">
+        <h1>Willkommen bei der Benutzerauthentifizierung</h1>
+        <p>Sie sind dabei, auf den gesicherten Website-Dienst der<a href="http://ethz.ch/"> ETH Zürich
+          </a>zuzugreifen.</p>
+      </div>
+      <div class="secondary-content">
+        <div id="login-container">
+          <h2>Anmelden</h2>
+
+
+          <form action="https://eduapp.ethz.ch/keycloak/realms/pwa/login-actions/authenticate?session_code=Ylav0VSiPmOcTlNUP613-A-upJdc3QWtjROmH-Ahiu8&amp;execution=375086a8-1f30-4b91-adfc-78da015a5498&amp;client_id=EduApp&amp;tab_id=45X5S7CTE4g&amp;client_data=eyJydSI6Imh0dHBzOi8vZWR1YXBwLmV0aHouY2gvb2F1dGgyL2NhbGxiYWNrIiwicnQiOiJjb2RlIiwic3QiOiJCVXpfdjA2Z1ZiMVVYWU4tSzhqUGxrc0Ewb19ockVGdGQ3QzVZa2RjRndJOi9hc3NldHMvU2VjdGlvbkFjdGl2aXR5RmVlZC1EQVJORnE1Yy5jc3MifQ" method="post">
+            <div class="form-group">
+
+              <label for="username">ETH-Benutzername <sup>*</sup></label>
+              <input required id="username" type="text" name="username" autofocus />
+            </div>
+            <div class="form-group">
+              <label for="password">ETH-Passwort für Webapplikationen (LDAP)  <sup>*</sup></label>
+              <input required id="password" type="password" name="password" />
+            </div>
+            <div class="form-group">
+              <button class="login-button">
+                Anmelden
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="info-container">
+          <h2>Schützen Sie Ihre Privatsphäre!</h2>
+          <p>Verhindern Sie einen Missbrauch!  <b>Löschen Sie den Cache Ihres Browsers</b> (<a href="http://de.wikihow.com/Cookies-im-Browser-l%C3%B6schen">insbesondere Cookies <span
+                class="material-symbols-outlined material-icons">
+                call_made
+              </span></a>) wenn Sie mit dem Browsen fertig sind.
+          </p>
+          <h3>Hilfe</h3>
+          <p>Bei Problemen mit der Anmeldung, prüfen Sie bitte Ihr <a href="https://www.passwort.ethz.ch/">ETH-Passwort für Webapplikationen (LDAP)
+            </a> oder kontaktieren Sie den <a href="http://www.its.ethz.ch/servicedesk">Servicedesk der ETH Informatikdienste.
+            </a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer__content">
+      <ul class="footer__content__links">
+        <li class="footer__content__links__item"><a href="https://ethz.ch/login/de/footer/impressum.html ">Impressum</a></li>
+        <li class="footer__content__links__item"><a href="https://ethz.ch/login/de/footer/disclaimer-copyright.html">Disclaimer &amp; Copyright</a></li>
+        <li class="footer__content__links__item"><a href="https://ethz.ch/login/de/footer/datenschutz.html">Datenschutz</a></li>
+      </ul>
+      <div class="footer__content__copyright">© <span id="currentYear">2025</span> <a
+          href="https://www.ethz.ch">Eidgenössische Technische Hochschule Zürich</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+function inverseLaplace(G, t, options = {}) {
+  const sigma = options.sigma ?? 1;
+  const wMax = options.wMax ?? 50;
+  const N = options.N ?? 2000;
+
+  const dw = wMax / N;
+  let sum = 0;
+
+  for (let k = 0; k < N; k++) {
+    const w = k * dw;
+    const s = math.complex(sigma, w);
+
+    const F = G(s); // G(s) must return a complex number
+
+    const real = F.re * Math.cos(w * t);
+    const imag = F.im * Math.sin(w * t);
+
+    sum += real - imag;
+  }
+
+  return (Math.exp(sigma * t) / Math.PI) * sum * dw;
+}
+
+
+//Example usage:
+/*
+const G = (s) => {
+  const denom = math.add(
+    math.pow(s, 2),
+    math.multiply(2, s),
+    1
+  );
+  return math.divide(1, denom);
+};
+
+const tValues = Array.from({ length: 400 }, (_, i) => i * 0.02);
+const y = tValues.map(t => inverseLaplace(G, t));
+
+*/

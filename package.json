@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx serve .",
+    "dev": "npx serve . -S",
     "build:css": "tailwindcss -i ./src/input.css -o ./tailwind.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./tailwind.css --watch"
   },
