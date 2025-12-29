@@ -83,8 +83,14 @@ function createLineDiv() {
 
 function removeSkeletons(ul) {
   if (!ul) return;
-  const skeletons = ul.querySelectorAll('[data-skeleton="true"]');
-  skeletons.forEach(el => el.remove());
+  // Remove all skeleton elements (li items in ul, empty state div, etc)
+  const section = ul.closest('div#section-tools');
+  if (section) {
+    section.querySelectorAll('[data-skeleton="true"]').forEach(el => el.remove());
+  } else {
+    // Fallback: just remove from ul
+    ul.querySelectorAll('[data-skeleton="true"]').forEach(el => el.remove());
+  }
 }
 
 export function refreshActivityLines() {
@@ -116,7 +122,7 @@ export function addDemoItems() {
   });
 }
 
-export function addActivityItem(symbolName, text1, dateStr, text2, text3) {
+export function addActivityItem(symbolName, text1, dateStr, text2, text3, linkOrPopup = null) {
   const ul = getToolsListElement();
   if (!ul) return;
 
@@ -158,7 +164,7 @@ export function addActivityItem(symbolName, text1, dateStr, text2, text3) {
   headerRow.appendChild(dateSpan);
 
   const card = document.createElement('div');
-  card.className = 'bg-[#1e1e1e] border border-white/[0.12] rounded p-4 hover:bg-[#252525] cursor-pointer';
+  card.className = 'bg-[#1e1e1e] border border-white/[0.12] rounded p-4 hover:bg-[#252525] cursor-pointer transition-colors';
 
   const p = document.createElement('p');
   p.className = 'text-xs opacity-60 mb-1';
@@ -170,6 +176,20 @@ export function addActivityItem(symbolName, text1, dateStr, text2, text3) {
 
   card.appendChild(p);
   card.appendChild(h3b);
+
+  // Handle link/popup interaction
+  if (linkOrPopup) {
+    if (typeof linkOrPopup === 'string' && (linkOrPopup.startsWith('http://') || linkOrPopup.startsWith('https://'))) {
+      // External or absolute URL: open in new tab
+      card.addEventListener('click', () => window.open(linkOrPopup, '_blank'));
+    } else if (typeof linkOrPopup === 'string') {
+      // Relative URL: navigate
+      card.addEventListener('click', () => window.location.href = linkOrPopup);
+    } else if (typeof linkOrPopup === 'function') {
+      // Callback function: call it to show popup or custom behavior
+      card.addEventListener('click', linkOrPopup);
+    }
+  }
 
   rightCol.appendChild(headerRow);
   rightCol.appendChild(card);
