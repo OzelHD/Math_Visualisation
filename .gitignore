@@ -2,8 +2,6 @@ node_modules/
 
 # Build outputs
 dist/
-tailwind.css
-tailwind.css.map
 
 # Environment / system
 .DS_Store
