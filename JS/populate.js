@@ -209,7 +209,7 @@ export async function populateSampleData() {
     today,
     'Announcement',
     'v2.0 available',
-    () => showPopup('Feature Release', 'Version 2.0 has been released with new visualization capabilities and performance improvements.')
+    () => showPopup('Feature Release', 'This is an updated version. Tester.')
   );
 }
 
