@@ -56,14 +56,20 @@ export async function searchConnections(from, to, datetime = null, limit = 10) {
     url.searchParams.append('to', to);
     
     if (datetime) {
-      // Format: YYYY-MM-DDTHH:mm:SS
-      const dt = new Date(datetime);
-      const isoStr = dt.toISOString().split('.')[0]; // Remove milliseconds
-      url.searchParams.append('datetime', isoStr);
+      // Use the datetime string directly - no conversion needed
+      let timeStr = String(datetime).trim();
+      
+      // Ensure format is YYYY-MM-DDTHH:mm:ss
+      if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(timeStr)) {
+        timeStr += ':00';
+      }
+      
+      url.searchParams.append('datetime', timeStr);
     }
     
     url.searchParams.append('limit', limit);
 
+    console.log('SBB API URL:', url.toString());
     const response = await fetch(url.toString());
     
     if (!response.ok) {
@@ -71,6 +77,7 @@ export async function searchConnections(from, to, datetime = null, limit = 10) {
     }
 
     const data = await response.json();
+    console.log('SBB API Response:', data);
     return data; // { connections: [...], stations: [...] }
   } catch (err) {
     throw new Error(`SBB API call failed: ${err.message}`);

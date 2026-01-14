@@ -387,8 +387,8 @@ async function sbbSearch() {
 	resultsEl.innerHTML = '';
 
 	try {
-		// Combine date and time into ISO format
-		const datetime = new Date(`${date}T${time}:00`).toISOString().split('.')[0];
+		// Combine date and time into ISO format (keep local time, don't convert to UTC)
+		const datetime = `${date}T${time}:00`;
 
 		const data = await searchConnections(from, to, datetime, 10);
 
